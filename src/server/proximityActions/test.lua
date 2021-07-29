@@ -11,7 +11,7 @@ local proximity = require(scriptsFolder.proximity)
 return proximity.new({
 	name = "test",
 	executor = function(args)
-        warn(args)
+        warn("HELLOOOOO", args)
        -- Command Code
        -- Send Logs and Notifications
     end,

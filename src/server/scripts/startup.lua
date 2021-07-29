@@ -32,13 +32,13 @@ end
 -- Detect when prompt is triggered
 ProximityPromptService.PromptTriggered:Connect(function(promptObject, player)
 
-    local proximityName = promptObject
+    local proximityName = promptObject.Name
 
     local proximity = table_find(proximityHandler.proximityActions, function(proximity) 
         return proximity.name == proximityName
     end)
 
-    warn(promptObject, proximity, proximityName, proximityHandler.proximityActions)
+    warn(proximityName, proximityHandler.proximityActions, proximity)
 
     if not proximity then return end
 
