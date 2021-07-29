@@ -5,13 +5,13 @@ local server = script.Parent.Parent
 local scriptsFolder = server.scripts
 
 -- Local Requires
-local proximityAction = require(scriptsFolder.proximity)
+local proximity = require(scriptsFolder.proximity)
 
 -- Main Code
-return proximityAction.new({
+return proximity.new({
 	name = "test",
 	executor = function(args)
-        print("TEST Function works")
+        warn(args)
        -- Command Code
        -- Send Logs and Notifications
     end,

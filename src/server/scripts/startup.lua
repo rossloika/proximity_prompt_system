@@ -12,11 +12,6 @@ local scriptsFolder = script.Parent
 local proximity = require(scriptsFolder.proximity)
 local proximityHandler = require(scriptsFolder.proximityHandler)
 
-for _, proximityActionsFile in ipairs(proximityActions:GetChildren()) do
-    proximityHandler.registerProximityAction(proximityActionsFile)
-end
-
-
 function table_find(tbl, callback)
     local matched = nil
 
@@ -30,24 +25,28 @@ function table_find(tbl, callback)
     return matched
 end
 
+for _, proximityActionFile in ipairs(proximityActions:GetChildren()) do
+    proximityHandler.registerProximityAction(proximityActionFile)
+end
 
 -- Detect when prompt is triggered
 ProximityPromptService.PromptTriggered:Connect(function(promptObject, player)
 
-    local proximityName = nil
+    local proximityName = promptObject
 
-    local proximity = table_find(proximityHandler.ProximityActions, function(proximity) 
+    local proximity = table_find(proximityHandler.proximityActions, function(proximity) 
         return proximity.name == proximityName
     end)
+
+    warn(promptObject, proximity, proximityName, proximityHandler.proximityActions)
 
     if not proximity then return end
 
     print(proximityName, proximity)
 
     proximity:execute({
-		player = player,
-        typeOfPrompt = "PromptTriggered",
-        name = proximityName,
+		name = proximityName,
+        player = player,
         promptObject = promptObject,
 	})
 end)

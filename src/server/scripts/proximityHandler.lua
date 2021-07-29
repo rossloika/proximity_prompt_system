@@ -1,11 +1,11 @@
 local ProximityHandler = {}
 
-ProximityHandler.ProximityActions = {}
+ProximityHandler.proximityActions = {}
 
-function ProximityHandler.registerProximityAction(proximityActionsFile)
-    local ProximityAction = require(proximityActionsFile)
+function ProximityHandler.registerProximityAction(proximityActionFile)
+    local ProximityAction = require(proximityActionFile)
 
-    ProximityHandler.ProximityActions[#ProximityHandler.ProximityActions+1] = ProximityAction
+    ProximityHandler.proximityActions[#ProximityHandler.proximityActions+1] = ProximityAction
 end
 
 return ProximityHandler

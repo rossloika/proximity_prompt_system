@@ -1,17 +1,19 @@
-local Proximity = {}
-Proximity.__index = Proximity
+local proximity = {}
+proximity.__index = proximity
 
-Proximity.new = function(opts)
+proximity.new = function(opts)
 	local self = {
         name = opts.name,
+		-- player = opts.player,
+		-- promptObject = opts.promptObject,
         executor = opts.executor,
 	}
-	return setmetatable(self, Proximity)
+	return setmetatable(self, proximity)
 end
 
-function Proximity:execute(args)
+function proximity:execute(args)
 	print("args", args)
 	self.executor(args)
 end
 
-return Proximity
+return proximity
