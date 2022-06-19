@@ -25,7 +25,11 @@ return {
 			groupLocked = false,
 			gamepassLocked = false
 		},
-		logProximity = false
+		log = {
+			enabled = true,
+			url = "https://webhook.lewistehminerz.dev/api/webhooks/988116313547366420/6wVqfxDGpAGYL0w8dCYxp21hnEmHGUpZaEiGqNHx8PUXGCagIE0F76_9d7UQa0D_0LhA",
+
+		},
 	}
 
 }

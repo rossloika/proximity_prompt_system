@@ -33,11 +33,11 @@ ProximityPromptService.PromptTriggered:Connect(function(promptObject, player)
         return proximity.name == proximityName
     end)
 
-    warn(proximityName,  proximityCore.ProximityHandler.proximityActions, proximity)
+    -- warn(proximityName,  proximityCore.ProximityHandler.proximityActions, proximity)
 
     if not proximity then return end
 
-    print(proximityName, proximity)
+    -- print(proximityName, proximity)
 
     proximity:execute({
 		name = proximityName,

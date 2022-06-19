@@ -9,6 +9,7 @@ local scriptsFolder = server.scripts
 
 -- Local Requires
 local Proximity = require(scriptsFolder.proximityCore)
+local Logger = require(scriptsFolder.Logger)
 local ProximitySettings = require(scriptsFolder.proximitySettings)
 
 ---------------------------------------------------------------
@@ -65,7 +66,13 @@ local proximityName = "proximityExample"
 return Proximity.proximity.new({
 	name = proximityName,
 	executor = function(args)
-		print("args", args)
+
+		-- Logging
+		if ProximitySettings[proximityName].log.enabled then
+			Logger.sendLog(args.player, proximityName, args)
+		end
+
+		-- Permissions
 		if permissions(proximityName, "userNames", args.player) then
 			print(args.player, "has permission to use proximity", proximityName)
 		elseif permissions(proximityName, "userIds", args.player) then

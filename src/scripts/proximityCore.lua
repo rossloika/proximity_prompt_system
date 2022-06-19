@@ -12,7 +12,7 @@ proximity.new = function(opts)
 end
 
 function proximity:execute(args)
-	print("args", args)
+	-- print("args", args)
 	self.executor(args)
 end
 
