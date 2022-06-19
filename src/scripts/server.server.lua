@@ -1,7 +1,3 @@
-function main()
-
-end
-
 local ProximityPromptService = game:GetService("ProximityPromptService")
 local ServerScriptService = game:GetService("ServerScriptService")
 
@@ -9,8 +5,7 @@ local proximityActions = script.Parent.Parent.proximityActions
 local scriptsFolder = script.Parent
 
 -- Local Requires
-local proximity = require(scriptsFolder.proximity)
-local proximityHandler = require(scriptsFolder.proximityHandler)
+local proximityCore = require(scriptsFolder.proximityCore)
 
 function table_find(tbl, callback)
     local matched = nil
@@ -26,7 +21,7 @@ function table_find(tbl, callback)
 end
 
 for _, proximityActionFile in ipairs(proximityActions:GetChildren()) do
-    proximityHandler.registerProximityAction(proximityActionFile)
+    proximityCore.ProximityHandler.registerProximityAction(proximityActionFile)
 end
 
 -- Detect when prompt is triggered
@@ -34,11 +29,11 @@ ProximityPromptService.PromptTriggered:Connect(function(promptObject, player)
 
     local proximityName = promptObject.Name
 
-    local proximity = table_find(proximityHandler.proximityActions, function(proximity) 
+    local proximity = table_find( proximityCore.ProximityHandler.proximityActions, function(proximity)
         return proximity.name == proximityName
     end)
 
-    warn(proximityName, proximityHandler.proximityActions, proximity)
+    warn(proximityName,  proximityCore.ProximityHandler.proximityActions, proximity)
 
     if not proximity then return end
 
@@ -50,5 +45,3 @@ ProximityPromptService.PromptTriggered:Connect(function(promptObject, player)
         promptObject = promptObject,
 	})
 end)
-
-return main
