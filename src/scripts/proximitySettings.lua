@@ -21,9 +21,6 @@ return {
 				-- 	},
 				-- },
 			},
-			userLocked = false,
-			groupLocked = false,
-			gamepassLocked = false
 		},
 		log = {
 			enabled = true,
