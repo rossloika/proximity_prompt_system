@@ -5,10 +5,10 @@ local server = script.Parent.Parent
 local scriptsFolder = server.scripts
 
 -- Local Requires
-local proximity = require(scriptsFolder.proximity)
+local proximity = require(scriptsFolder.proximityCore)
 
 -- Main Code
-return proximity.new({
+return proximity.proximity.new({
 	name = "test",
 	executor = function(args)
         warn("HELLOOOOO", args)

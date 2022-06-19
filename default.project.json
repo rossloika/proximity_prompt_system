@@ -3,9 +3,9 @@
   "tree": {
     "$className": "DataModel",
 
-    "Workspace": {
-      "$className": "Workspace",
-      "Microphone Screens": {
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "Proximity Prompt System": {
         "$className": "Folder",
         "$path": "src"
       }
